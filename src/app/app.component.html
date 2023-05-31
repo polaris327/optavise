@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="container-top">
+    <strong>Employees</strong>
+    <div class="dropdown">
+      <select class="form-control form-control" [(ngModel)]="selectedDepartment">
+        <option value="">All Departments</option>
+        <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="container-main">
+    <optavise-employee [employee]="employee" *ngFor="let employee of employees | departmentFilter: selectedDepartment | paginate: { itemsPerPage: 6, currentPage: page }"></optavise-employee>
+  </div>
+  <div class="container-footer">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </div>
+</div>

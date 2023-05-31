@@ -1,0 +1,12 @@
+<div *ngIf="employee" class="employee">
+    <img class="employee-img" [src]="employee.avatar" />
+    <div class="employee-profile">
+        <div class="name">{{ employee.firstName }} {{ employee.lastName }}</div>
+        <div class="position">{{ employee.position }}</div>
+        <div class="tags">
+            <optavise-tag [text]="employee.department"></optavise-tag>
+            <optavise-tag *ngIf="employee.married" text="Married"></optavise-tag>
+            <optavise-tag *ngIf="employee.vip" text="VIP" [vip]="true"></optavise-tag>    
+        </div>
+    </div>
+</div>
